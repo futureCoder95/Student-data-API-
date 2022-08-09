@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then((getApi) => {
+                return getApi.json();
+            }).then((pro) => {
+                console.log(pro);
+
+                for (var i in pro) {
+                    document.write(`<hr><hr> My name is <strong>${pro[i].name}</strong> , My email address is   <strong>${pro[i].email}</strong> , My phone number is <strong>${pro[i].phone}</strong> , and my website is <strong>${pro[i].website}<strong/> <br><hr>`)
+                }
+
+                    const myName = pro[5];
+                    document.write(`<hr> The name is ${myName.name} <hr>  My email address is ${myName.email} <hr> My official website is ${myName.website} <hr> And in case of emergency you can contact me on my phone which is ${myName.phone}...<hr>
+                    Thankyou... <hr>`);
+
+            }).catch((err) => {
+                console.log(`Error is ${err}`);
+            })
+
+    </script>
+</body>
+
+</html>
